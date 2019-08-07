@@ -17,10 +17,13 @@ if (process.env.ALLOWED_DIMENSIONS) {
 
 exports.handler = function(event, context, callback) {
   const key = event.queryStringParameters.key;
-  const match = key.match(/((\d+)x(\d+))\/(.*)/);
+  const match = key.match(/((\d+)x(\d+|null))\/(.*)/);
   const dimensions = match[1];
   const width = parseInt(match[2], 10);
-  const height = parseInt(match[3], 10);
+  var height = null
+  if (match[3] != 'null') {
+    height = parseInt(match[3], 10);
+  }
   const originalKey = match[4];
 
   if(ALLOWED_DIMENSIONS.size > 0 && !ALLOWED_DIMENSIONS.has(dimensions)) {
