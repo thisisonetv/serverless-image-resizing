@@ -31,7 +31,7 @@ image will be served from S3 directly.
 
     Add the built zip file to the `modules/lambda/js` directory and update the `image_library` variable in the clients tf file.
 
-4. Test the function
+3. Test the function
 
     Upload an image to the S3 bucket and try to resize it via your web browser
     to different sizes, e.g. with an image uploaded in the bucket called
@@ -44,7 +44,7 @@ image will be served from S3 directly.
     You can find the `BucketWebsiteUrl` in the table of outputs displayed on a
     successful invocation of the deploy script.
 
-5. (Optional) Restrict resize dimensions
+4. (Optional) Restrict resize dimensions
 
     To restrict the dimensions the function will create, set the environment
     variable `ALLOWED_DIMENSIONS` to a string in the format
