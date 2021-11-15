@@ -35,7 +35,7 @@ exports.handler = async function (event, context, callback) {
     }
 
     const data = await S3.getObject({Bucket: BUCKET, Key: originalKey}).promise();
-    const buffer = Sharp(data.Body)
+    const buffer = await Sharp(data.Body)
         .resize(width, height)
         .toFormat('png')
         .toBuffer();
