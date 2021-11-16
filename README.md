@@ -1,7 +1,3 @@
-# Archived
-
-See https://github.com/awslabs/serverless-image-handler instead.
-
 # Serverless Image Resizing
 
 ## Description
@@ -29,15 +25,11 @@ image will be served from S3 directly.
      install Node.js and developer tools, and build the extensions using Docker.
      Run `make all`.
 
-2. Deploy the CloudFormation stack
+2. Deploy the Terraform stack
+    
+    https://github.com/thisisonetv/one-terraform
 
-    Run `bin/deploy` to deploy the CloudFormation stack. It will create a
-    temporary Amazon S3 bucket, package and upload the function, and create the
-    Lambda function, Amazon API Gateway RestApi, and an S3 bucket for images via
-    CloudFormation.
-
-    The deployment script requires the [AWS CLI][cli] version 1.11.19 or newer
-    to be installed.  Be sure to [set your AWS credentials][aws-configure] using `aws configure`
+    Add the built zip file to the `modules/lambda/js` directory and update the `image_library` variable in the clients tf file.
 
 3. Test the function
 
@@ -59,6 +51,11 @@ image will be served from S3 directly.
     *(HEIGHT)x(WIDTH),(HEIGHT)x(WIDTH),...*.
 
     For example: *300x300,90x90,40x40*.
+
+## "Archived"
+
+The base image in use has been archived, with further updates by ONE to keep this one going.
+Ideally we update to use https://github.com/awslabs/serverless-image-handler instead.
 
 ## License
 
